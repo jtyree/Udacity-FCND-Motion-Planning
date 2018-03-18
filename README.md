@@ -86,7 +86,7 @@ Some of the waypoints ended up pretty close to obstacles. It wouldn't take much 
 
 #### The Path is Not the Same in Both Directions
 
-I believe this was pointed out in the lessons, but it's still worth pointing out. At least with the current A* implementation, a path back to the starting point will not necessarily be identical to the path going outward. The image below shows one such difference.
+I believe this was already pointed out in the lessons, but it's still worth mentioning. At least with the current A* implementation, a path back to the starting point will not necessarily be identical to the path going outward. The image below shows one such difference.
 
 ![Forward and Backward are Not Identical](./misc/path.png)
 
