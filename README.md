@@ -55,7 +55,7 @@ The goal position is set from latitude and longitude that is passed into the pro
 ```python.exe motion_planning.py --lat 37.793155 --long -122.402035```
 
 #### 5. Modify A* to include diagonal motion (or replace A* altogether)
-A* was modified to add the 4 diagonals in addition to the cardinal directions.
+A* was modified to add the 4 diagonals to the cardinal directions.
 * These were added to the action enum with costs of sqrt(2)
 * valid_actions was modified to check the diagonals and remove them if necessary, just like it already checked the cardinal directions 
 
