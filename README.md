@@ -1,5 +1,5 @@
 ## Project: 3D Motion Planning
-![Quad Image](./misc/enroute.png)
+![Quad Image](misc/enroute.png)
 
 ---
 
@@ -15,7 +15,7 @@ This solution was developed using JetBrains PyCharm in Windows 10 rather than th
 
 #### 1. Explain the functionality of what's provided in `motion_planning.py` and `planning_utils.py`
 
-####`motion_planning.py`
+`motion_planning.py`
 
 The starter code creates a state machine that does the following:
 1. Creates a connection to the Udacity simulator
@@ -30,7 +30,7 @@ The starter code creates a state machine that does the following:
 * Landing (Descending)
 * Disarming (Shutting down)
 
-####`planning_utils.py`
+`planning_utils.py`
 
 Contains python utility code to:
 * Create a 2D obstacle grid given a cruising altitude, a clearance distance, and a colliders csv file
@@ -76,7 +76,7 @@ Sometimes the shortest path is not directly towards the goal. This can be seen b
 One solution would be to run another iteration on the waypoints after colinearity pruning to see if any can be removed while not causing a collision. The case below is an example where this would help.
 
 
-![Hitch in Path](./misc/hitch.png)
+![Hitch in Path](misc/hitch.png)
 
 Given more time, more advanced planning solutions could be developed.
 
@@ -88,5 +88,5 @@ Some of the waypoints ended up pretty close to obstacles. It wouldn't take much 
 
 I believe this was pointed out in the lessons, but it's still worth pointing out. At least with the current A* implementation, a path back to the starting point will not necessarily be identical to the path going outward. The image below shows one such difference.
 
-![Forward and Backward are Not Identical](./misc/path.png)
+![Forward and Backward are Not Identical](misc/path.png)
 
