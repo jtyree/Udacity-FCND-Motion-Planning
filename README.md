@@ -1,5 +1,5 @@
 ## Project: 3D Motion Planning
-![Quad Image](misc/enroute.png)
+![Quad Image](./misc/enroute.png)
 
 ---
 
@@ -76,7 +76,7 @@ Sometimes the shortest path is not directly towards the goal. This can be seen b
 One solution would be to run another iteration on the waypoints after colinearity pruning to see if any can be removed while not causing a collision. The case below is an example where this would help.
 
 
-![Hitch in Path](misc/hitch.png)
+![Hitch in Path](./misc/hitch.png)
 
 Given more time, more advanced planning solutions could be developed.
 
@@ -88,5 +88,5 @@ Some of the waypoints ended up pretty close to obstacles. It wouldn't take much 
 
 I believe this was pointed out in the lessons, but it's still worth pointing out. At least with the current A* implementation, a path back to the starting point will not necessarily be identical to the path going outward. The image below shows one such difference.
 
-![Forward and Backward are Not Identical](misc/path.png)
+![Forward and Backward are Not Identical](./misc/path.png)
 
