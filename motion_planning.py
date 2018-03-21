@@ -84,10 +84,13 @@ class MotionPlanning(Drone):
 
     def waypoint_transition(self):
         self.flight_state = States.WAYPOINT
-        print("waypoint transition")
-        self.target_position = self.waypoints.pop(0)
-        print('target position', self.target_position)
-        self.cmd_position(self.target_position[0], self.target_position[1], self.target_position[2], self.target_position[3])
+        if len(self.waypoints) > 0:
+            print("waypoint transition")
+            self.target_position = self.waypoints.pop(0)
+            print('target position', self.target_position)
+            self.cmd_position(self.target_position[0], self.target_position[1], self.target_position[2], self.target_position[3])
+        else:
+            print('no waypoints')
 
     def landing_transition(self):
         self.flight_state = States.LANDING
@@ -157,14 +160,20 @@ class MotionPlanning(Drone):
         # DONE: add diagonal motions with a cost of sqrt(2) to your A* implementation
         # or move to a different search space such as a graph (not done here)
         print('Local Start and Goal: ', actual_start, grid_goal)
-        path, _ = a_star(grid, heuristic, actual_start, grid_goal)
         
-        # DONE: prune path to minimize number of waypoints
-        # TODO (if you're feeling ambitious): Try a different approach altogether!
-        pruned = prune_path(path)
+        if actual_start == grid_goal:
+            print('start and goal are the same - no path to plan')
+            waypoints = []
+        else:
+            path, _ = a_star(grid, heuristic, actual_start, grid_goal)
 
-        # Convert path to waypoints
-        waypoints = [[p[0] + north_offset, p[1] + east_offset, TARGET_ALTITUDE, 0] for p in pruned]
+            # DONE: prune path to minimize number of waypoints
+            # TODO (if you're feeling ambitious): Try a different approach altogether!
+            pruned = prune_path(path)
+
+            # Convert path to waypoints
+            waypoints = [[p[0] + north_offset, p[1] + east_offset, TARGET_ALTITUDE, 0] for p in pruned]
+
         # Set self.waypoints
         self.waypoints = waypoints
         # DONE: send waypoints to sim
